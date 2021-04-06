@@ -50,7 +50,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
        # Fill in start
        # Fetch the ICMP header from the IP packet
        ICMPHeader = recPacket [20:28]
-       requestType, code, checksum, packetID, sequence = struct.unpack('bbHHh')
+       requestType, code, checksum, packetID, sequenceNum = struct.unpack('bbHHh')
 
        if ID == packetID:
           doubleBytes = struct.calcsize('d')
@@ -58,10 +58,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
           timeDifference = timeReceived - sentTime
           return timeDifference 
        else:
-           return 'IDs are different'
-
-       
-       
+           return 'IDs are different!'
 
        # Fill in end
        timeLeft = timeLeft - howLongInSelect
