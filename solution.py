@@ -117,7 +117,7 @@ def ping(host, timeout=1):
    #print("")
    # Calculate vars values and return them
    # Send ping requests to a server separated by approximately one second
-   timeArray = [float]*4
+   timeArray = [0.0]*4
    for i in range(0,4):
        delay = doOnePing(dest, timeout)
        #print(delay)
@@ -134,7 +134,7 @@ def ping(host, timeout=1):
  #  print(packet_avg)
    stdev_var = statistics.stdev(timeArray)
   # print(stdev_var)
-   vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)), str(round(packet_max, 2)),str(round(stdev_var, 2))]
+   vars = [round(packet_min, 2), round(packet_avg, 2), round(packet_max, 2),round(stdev_var, 2)]
    #print(vars)
    return vars
 
