@@ -54,7 +54,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
 
        if ID == packetID:
           doubleBytes = struct.calcsize('d')
-          sentTime = struct.unpack('d', recPacket[28:28 + doubleBytes]) [0]
+          sentTime = struct.unpack('d', recPacket[28:28 + doubleBytes])[0]
           timeDifference = (timeReceived - sentTime)/1000
           return timeDifference 
        else:
